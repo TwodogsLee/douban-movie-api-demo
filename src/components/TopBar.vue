@@ -1,7 +1,10 @@
 <!-- 头部 650*47 -->
 <template>
   <div class="topbar">
-    <h2 id="logo">豆瓣</h2>
+    <h1 id="logo">豆瓣</h1>
+    <router-link to="/menu">
+    <img src="@/assets/icon/menu.png" alt="gg" id="menuimg">
+    </router-link>
     <a href="about:blank">
       <div id="link-douban">打开豆瓣APP</div>
     </a>
@@ -10,7 +13,7 @@
 
 <style>
 .topbar {
-  background:coral;
+  background:white;
   position: fixed;
   top: 0;
   width: 100%;
@@ -18,11 +21,18 @@
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
   z-index: 100;
 }
-h2 {
+.topbar h1 {
+  font-size: 24px;
   float: left;
   margin: 10px 10px 10px 10px;
   color: #42bd56;
   font-family: "Helvetica Neue";
+  font-weight: normal
+}
+#menuimg {
+  float: left;
+  max-height: 20px;
+  margin: 15px 10px 10px 5px;
 }
 #link-douban {
   position: absolute;
