@@ -1,7 +1,7 @@
 # douban-movie-demo
 
 > A Vue.js project
-
+>一个高仿豆瓣手机版的应用
 ## Build Setup
 
 ``` bash

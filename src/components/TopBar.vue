@@ -17,6 +17,7 @@
   position: fixed;
   top: 0;
   width: 100%;
+  max-width: 700px;
   height: 47px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
   z-index: 100;
@@ -35,8 +36,9 @@
   margin: 15px 10px 10px 5px;
 }
 #link-douban {
-  position: absolute;
-  right: 10px;
+  /* position: absolute; */
+  /* right: 10px; */
+  float:right;
   margin: 10px;
   padding: 5px;
   background: #42bd56;

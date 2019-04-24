@@ -78,9 +78,10 @@ span{
   margin: 0;
 }
 #morelink {
-  position: absolute;
+  /* position: absolute; */
   color: #42bd56;
-  right: 10px;
+  /* right: 10px; */
+  float:right;
   font-size: 16px;
 }
 </style>

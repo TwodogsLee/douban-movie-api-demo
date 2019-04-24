@@ -1,34 +1,33 @@
 <template>
   <div class="detailCard">
     <h1>{{movieInfo.title}}</h1>
-    <div width="100%" height="150px">
-      <div id="info">
-        <div id="rating">
-          <RatingStar :rating="getRating"></RatingStar>
-          {{getRating}}
-          <span class="ratingNum">{{getRatingNum}}人已评价</span>
+    <div class="infoCard">
+      <div id="info-outer">
+        <div id="info">
+          <div id="rating">
+            <RatingStar :rating="getRating"></RatingStar>
+            {{getRating}}
+            <span class="ratingNum">{{getRatingNum}}人已评价</span>
+          </div>
+          {{getInfo}}
         </div>
-        <p>{{getInfo}}</p>
       </div>
-      <img :src="movieInfo.image" id="cover" alt="gg">
+      <div id="cover">
+        <img :src="movieInfo.image" alt="gg" width="100px">
+      </div>
     </div>
-    <div class="differ_type">
-      <ul>
-        <li>想看</li>
-        <li>看过</li>
-      </ul>
+    <div class="mark-item">
+        <span>想看</span>
+        <span>看过</span>
     </div>
     <div>
       <h2>所属频道</h2>
-      <li v-for="(item,index) in getTags"
-      :key="index" class='tags'>
-      {{item}}
-      </li>
+      <li v-for="(item,index) in getTags" :key="index" class="tags">{{item}}</li>
     </div>
-      <h2>{{movieInfo.title}}的剧情简介</h2>
-      <p>{{movieInfo.summary}}</p>
-      <h2>影人</h2>
-      <h2>{{movieInfo.title}}的短评</h2>
+    <h2>{{movieInfo.title}}的剧情简介</h2>
+    <p>{{movieInfo.summary}}</p>
+    <h2>影人</h2>
+    <h2>{{movieInfo.title}}的短评</h2>
   </div>
 </template>
 <script>
@@ -96,6 +95,7 @@ export default {
         return 0;
       }
     },
+    //导演
     getDirector() {
       if (this.movieInfo.attrs != undefined) {
         return this.movieInfo.attrs.director[0] + "（导演）";
@@ -145,17 +145,17 @@ export default {
       }
     },
     //标签
-    getTags(){
-      var result=[];
-      var temp=[];
-      if (this.movieInfo.attrs != undefined){
-        temp=this.movieInfo.tags;
-        for(var i=0;i<temp.length;i++){
-          result.push(temp[i].name+"  >")
+    getTags() {
+      var result = [];
+      var temp = [];
+      if (this.movieInfo.attrs != undefined) {
+        temp = this.movieInfo.tags;
+        for (var i = 0; i < temp.length; i++) {
+          result.push(temp[i].name + "  >");
         }
         return result;
-      }else{
-        return ""
+      } else {
+        return "";
       }
     },
     getInfo() {
@@ -184,16 +184,34 @@ export default {
   color: #999;
   padding: 0 0 0 5px;
 }
-.tags{
+.infoCard {
+  height: 150px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.infoCard #cover {
+  max-width: 700px;
+  width: 100px;
+  float: right;
+}
+.infoCard #info-outer {
+  float: left;
+  width: 100%;
+  margin-left: -120px;
+}
+#info {
+  margin-left: 120px;
+}
+.tags {
   display: inline-block;
-  background-color:#effaf0;
-  border:1px solid #42bd56;
-  color:#42bd56;
+  background-color: #effaf0;
+  border: 1px solid #42bd56;
+  color: #42bd56;
   font-size: 13px;
-  border-radius:15px;
-  padding:5px 10px;
-  margin-right:10px;
-  margin-bottom: 10px; 
+  border-radius: 15px;
+  padding: 5px 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 RatingStar {
   display: inline-block;
@@ -202,32 +220,20 @@ RatingStar {
   white-space: nowrap;
   line-height: 20px;
 }
-#cover {
-  display:inline-block;
-  position: absolute;;
-  width: 100px;
-  right:10px;
-}
 .detailCard {
-  margin: 5px 15px 5px 15px;
+  padding: 5px 15px 5px 15px;
 }
-.differ_type ul{
-  width:100%;
+.mark-item{
+  margin: 10px 0 0 0;
+  width:100%
+}
+.mark-item span{
   display:inline-block;
-}
-.differ_type li{
+  line-height:30px;
   width:49%;
-  display:inline-block;
-  background-color:#effaf0;
-  border:1px solid #42bd56;
-  color:#42bd56;
-  padding:5px 10px;
+  border:1px solid #ffb712;
+  border-radius: 3px;
+  color:#ffb712;
+  text-align: center;
 }
-#info #cover {
-  width: 100px;
-}
-#info {
-  display: inline-block;
-}
-/* as follows are from other component */
 </style>
